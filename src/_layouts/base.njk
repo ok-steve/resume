@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="{{ eleventy.generator }}" />
+
+    <title>{{ pkg.name | capitalize }} | {{ name }}</title>
+    <meta
+      name="description"
+      content="{{ description | default(pkg.description, true) }}"
+    />
+
+    <link rel="canonical" href="{{ page.url | htmlBaseUrl(pkg.author.url) }}" />
+
+    <link
+      rel="stylesheet"
+      href="{{ pkg.author.url }}/normcore/css/normcore.css"
+    />
+    <link rel="stylesheet" href="/public/style.css" />
+  </head>
+  <body>
+    <header role="banner">
+      <h1>{{ name or site.name }}</h1>
+    </header>
+
+    <main role="main">
+      {{ content | safe }}
+    </main>
+  </body>
+</html>

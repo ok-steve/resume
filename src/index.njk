@@ -1,7 +1,77 @@
 ---
 layout: base.njk
 name: Steve Cherry
-permalink: index.html
 ---
 
-Hello world!
+<h2>Experience</h2>
+
+{% for position in collections.work %}
+  <div class="p-experience h-event" property="schema:hasOccupation" typeof="schema:OrganizationRole">
+    <div class="stack" property="schema:hasOccupation" typeof="schema:Occupation">
+      <h3>
+        <span class="p-name" property="schema:name">{{ position.data.position }}</span>
+        (<time class="dt-start" property="schema:startDate">{{ position.data.startDate | date({ year: 'numeric', month: 'long' }) }}</time>&ndash;<time class="dt-end" property="schema:endDate">{{ position.data.endDate | date({ year: 'numeric', month: 'long' }) }}</time>)
+      </h3>
+
+      <p class="p-location h-card">
+        <span class="p-org">{{ position.data.name }}</span>:
+        <span class="p-adr" property="schema:occupationLocation">{{ position.data.location }}</span>
+      </p>
+
+      {% for highlight in position.data.highlights %}
+        <h4 class="p-skill" property="schema:skills">{{ highlight.name }}</h4>
+
+        <ul class="p-summary" property="schema:responsibilities">
+          {% for responsibility in highlight.responsibilities %}
+            <li>{{ responsibility | safe }}</li>
+          {% endfor %}
+        </ul>
+      {% endfor %}
+    </div>
+  </div>
+{% endfor %}
+
+<h2>Education</h2>
+
+{% for degree in collections.education %}
+  <div class="p-education h-event" property="schema:alumniOf" typeof="schama:OrganizationRole">
+    <div class="stack" property="schema:alumniOf" typeof="schema:CollegeOrUniversity">
+      <h3>
+        <span class="p-name">{{ degree.data.studyType }}</span>
+        (<time class="dt-end" property="schema:endDate">{{ degree.data.endDate | date({ year: 'numeric', month: 'long' }) }}</time>)
+      </h3>
+
+      <p class="p-location h-card">
+        <span class="p-org" property="schema:name">{{ degree.data.institution }}</span>:
+        <span class="p-adr" property="schema:address">{{ degree.data.location }}</span>
+      </p>
+
+      <ul class="p-summary">
+        {% for highlight in degree.data.highlights %}
+          <li>{{ highlight | safe }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endfor %}
+
+<h2>Projects</h2>
+
+{% for project in collections.projects %}
+  <h3>{{ project.data.name }} at {{ project.data.instutition }}</h3>
+  <p>{{ project.data.location }} ({{ project.data.startDate | date({ year: 'numeric', month: 'long' }) }}&ndash;{{ project.data.endDate | date({ year: 'numeric', month: 'long' }) }})</p>
+  <ul>
+    {% for highlight in project.data.highlights %}
+      <li>{{ highlight | safe }}</li>
+    {% endfor %}
+  </ul>
+{% endfor %}
+
+<h2>Professional activity</h2>
+
+<ul>
+  <li>Attended DrupalCon Portland 2013, Seattle 2019, Pittsburgh 2023, &amp; Drupal GovCon 2016&ndash;2019</li>
+  {% for publication in collections.publications %}
+    <li><em>{{ publication.data.name }}</em>: {{ publication.data.publisher }}, {{ publication.data.releaseDate | date({ year: 'numeric', month: 'long', day: 'numeric' }) }}.</li>
+  {% endfor %}
+</ul>

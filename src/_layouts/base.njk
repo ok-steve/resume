@@ -19,12 +19,12 @@
     />
     <link rel="stylesheet" href="/public/style.css" />
   </head>
-  <body>
+  <body class="[ h-resume ] [ center stack ]" typeof="schema:Person">
     <header role="banner">
-      <h1>{{ name or site.name }}</h1>
+      <h1 class="p-name">{{ name or site.name }}</h1>
     </header>
 
-    <main role="main">
+    <main class="stack" role="main">
       {{ content | safe }}
     </main>
   </body>

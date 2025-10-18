@@ -1,0 +1,35 @@
+{
+  "name": "resume",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "description": "The online resume of Steve Cherry.",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "eleventy",
+    "preview": "eleventy --watch",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "eleventy --serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ok-steve/resume.git"
+  },
+  "keywords": [
+    "eleventy"
+  ],
+  "author": {
+    "name": "Steve Cherry",
+    "email": "steve@stevecherry.net",
+    "url": "https://stevecherry.net"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ok-steve/resume/issues"
+  },
+  "homepage": "https://github.com/ok-steve/resume#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "rimraf": "^6.0.1"
+  }
+}

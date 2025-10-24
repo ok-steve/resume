@@ -1,7 +1,8 @@
 ---
-studyType: Master of Science in Information
-institution: "University of Michigan: School of Information"
+title: Master of Science in Information
+organization: "University of Michigan: School of Information"
 location: Ann Arbor, MI
+startDate: 2009-08
 endDate: 2011-04
 highlights:
   - Specialization in Archives and Records Management.

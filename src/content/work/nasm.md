@@ -1,6 +1,6 @@
 ---
-position: Senior Web Developer
-name: Smithsonian National Air and Space Museum
+title: Senior Web Developer
+organization: Smithsonian National Air and Space Museum
 location: Washington, DC
 startDate: 2023-10
 ---

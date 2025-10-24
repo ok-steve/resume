@@ -1,6 +1,6 @@
 ---
-position: Senior Web Developer
-name: The George Washington University
+title: Senior Web Developer
+organization: The George Washington University
 location: Washington, DC
 startDate: 2019-03
 endDate: 2023-10

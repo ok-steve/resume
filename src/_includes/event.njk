@@ -1,0 +1,29 @@
+<div class="[ h-event {{ microformat }} ] [ stack ]">
+  <h3>
+    <span class="p-name">{{ entry.data.title }}</span>
+    (<time class="dt-start">{{ entry.data.startDate | date({ year: 'numeric', month: 'long' }) }}</time>
+    &ndash;
+    {% if entry.data.endDate %}
+      <time class="dt-end">{{ entry.data.endDate | date({ year: 'numeric', month: 'long' }) }}</time>
+    {%- else %}
+      <span>Present</span>
+    {%- endif %})
+  </h3>
+
+  <p class="p-location h-card">
+    <span class="p-org">{{ entry.data.organization }}</span>:
+    <span class="p-adr">{{ entry.data.location }}</span>
+  </p>
+
+  <div class="[ p-summary ] [ stack ]">
+    {{ entry.templateContent | safe }}
+
+    {% if entry.data.highlights %}
+      <ul>
+        {% for highlight in entry.data.highlights %}
+          <li>{{ highlight }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+</div>

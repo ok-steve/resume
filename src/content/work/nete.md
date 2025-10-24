@@ -1,6 +1,6 @@
 ---
-position: Software Engineer II
-name: Net eSolutions
+title: Software Engineer II
+organization: Net eSolutions
 location: McLean, VA
 startDate: 2015-10
 endDate: 2019-03

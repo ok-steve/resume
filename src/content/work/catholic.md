@@ -1,6 +1,6 @@
 ---
-position: Electronic Services Librarian
-name: The Catholic University of America
+title: Electronic Services Librarian
+organization: The Catholic University of America
 location: Washington, DC
 startDate: 2011-10
 endDate: 2015-10

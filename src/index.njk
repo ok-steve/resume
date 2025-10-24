@@ -3,33 +3,31 @@ layout: base.njk
 title: Resume
 ---
 
-<div class="[ h-resume ] [ center stack ]" typeof="schema:Person">
+<div class="[ h-resume ] [ center stack ]">
   <h1 class="p-name">{{ pkg.author.name }}</h1>
 
   <h2>Experience</h2>
 
   {% for entry in collections.work %}
-    <div class="p-experience h-event" property="schema:hasOccupation" typeof="schema:OrganizationRole">
-      <div class="stack" property="schema:hasOccupation" typeof="schema:Occupation">
-        <h3>
-          <span class="p-name" property="schema:name">{{ entry.data.position }}</span>
-          (<time class="dt-start" property="schema:startDate">{{ entry.data.startDate | date({ year: 'numeric', month: 'long' }) }}</time>
-          &ndash;
-          {% if entry.data.endDate %}
-            <time class="dt-end" property="schema:endDate">{{ entry.data.endDate | date({ year: 'numeric', month: 'long' }) }}</time>)
-          {% else %}
-            <span>Present</span>
-          {%- endif %})
-        </h3>
+    <div class="[ p-experience h-event ] [ stack ]">
+      <h3>
+        <span class="p-name">{{ entry.data.position }}</span>
+        (<time class="dt-start">{{ entry.data.startDate | date({ year: 'numeric', month: 'long' }) }}</time>
+        &ndash;
+        {% if entry.data.endDate %}
+          <time class="dt-end">{{ entry.data.endDate | date({ year: 'numeric', month: 'long' }) }}</time>)
+        {% else %}
+          <span>Present</span>
+        {%- endif %})
+      </h3>
 
-        <p class="p-location h-card">
-          <span class="p-org">{{ entry.data.name }}</span>:
-          <span class="p-adr" property="schema:occupationLocation">{{ entry.data.location }}</span>
-        </p>
+      <p class="p-location h-card">
+        <span class="p-org">{{ entry.data.name }}</span>:
+        <span class="p-adr">{{ entry.data.location }}</span>
+      </p>
 
-        <div class="[ p-summary ] [ stack ]" property="schema:responsibilities">
-          {{ entry.templateContent | safe }}
-        </div>
+      <div class="[ p-summary ] [ stack ]">
+        {{ entry.templateContent | safe }}
       </div>
     </div>
   {% endfor %}
@@ -37,16 +35,16 @@ title: Resume
   <h2>Education</h2>
 
   {% for degree in collections.education %}
-    <div class="p-education h-event" property="schema:alumniOf" typeof="schama:OrganizationRole">
-      <div class="stack" property="schema:alumniOf" typeof="schema:CollegeOrUniversity">
+    <div class="p-education h-event">
+      <div class="stack">
         <h3>
           <span class="p-name">{{ degree.data.studyType }}</span>
-          (<time class="dt-end" property="schema:endDate">{{ degree.data.endDate | date({ year: 'numeric', month: 'long' }) }}</time>)
+          (<time class="dt-end">{{ degree.data.endDate | date({ year: 'numeric', month: 'long' }) }}</time>)
         </h3>
 
         <p class="p-location h-card">
-          <span class="p-org" property="schema:name">{{ degree.data.institution }}</span>:
-          <span class="p-adr" property="schema:address">{{ degree.data.location }}</span>
+          <span class="p-org">{{ degree.data.institution }}</span>:
+          <span class="p-adr">{{ degree.data.location }}</span>
         </p>
 
         <ul class="p-summary">

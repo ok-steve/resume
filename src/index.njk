@@ -8,28 +8,22 @@ title: Resume
 
   <h2>Experience</h2>
 
-  {% for position in collections.work %}
+  {% for entry in collections.work %}
     <div class="p-experience h-event" property="schema:hasOccupation" typeof="schema:OrganizationRole">
       <div class="stack" property="schema:hasOccupation" typeof="schema:Occupation">
         <h3>
-          <span class="p-name" property="schema:name">{{ position.data.position }}</span>
-          (<time class="dt-start" property="schema:startDate">{{ position.data.startDate | date({ year: 'numeric', month: 'long' }) }}</time>&ndash;<time class="dt-end" property="schema:endDate">{{ position.data.endDate | date({ year: 'numeric', month: 'long' }) }}</time>)
+          <span class="p-name" property="schema:name">{{ entry.data.position }}</span>
+          (<time class="dt-start" property="schema:startDate">{{ entry.data.startDate | date({ year: 'numeric', month: 'long' }) }}</time>&ndash;<time class="dt-end" property="schema:endDate">{{ entry.data.endDate | date({ year: 'numeric', month: 'long' }) }}</time>)
         </h3>
 
         <p class="p-location h-card">
-          <span class="p-org">{{ position.data.name }}</span>:
-          <span class="p-adr" property="schema:occupationLocation">{{ position.data.location }}</span>
+          <span class="p-org">{{ entry.data.name }}</span>:
+          <span class="p-adr" property="schema:occupationLocation">{{ entry.data.location }}</span>
         </p>
 
-        {% for highlight in position.data.highlights %}
-          <h4 class="p-skill" property="schema:skills">{{ highlight.name }}</h4>
-
-          <ul class="p-summary" property="schema:responsibilities">
-            {% for responsibility in highlight.responsibilities %}
-              <li>{{ responsibility  }}</li>
-            {% endfor %}
-          </ul>
-        {% endfor %}
+        <div class="[ p-summary ] [ stack ]" property="schema:responsibilities">
+          {{ entry.templateContent | safe }}
+        </div>
       </div>
     </div>
   {% endfor %}

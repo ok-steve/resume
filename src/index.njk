@@ -1,131 +1,6 @@
 ---
 layout: base.njk
 title: Steve Cherry - Senior Developer in Washington, DC
-work:
-  - position: Senior Web Developer
-    name: The George Washington University
-    location: Washington, DC
-    startDate: 2019-03
-    endDate: 2023-10
-    highlights:
-      - name: Back-end development
-        responsibilities:
-          - Build and update custom modules to enhance functionality of Drupal sites.
-          - Regularly update core and contributed modules to fix security issues and bugs.
-      - name: Front-end development
-        responsibilities:
-          - Build components with CSS and JavaScript to enhance existing themes.
-          - Remediate accessibility issues on all websites to ensure WCAG compliance.
-      - name: DevOps
-        responsibilities:
-          - Reorganize version control repositories to a per-site structure to facilitate deployment.
-          - Improve speed and consistency of deployments through using Composer and a custom deployment script.
-          - Configure Linux server as needed.
-      - name: Communication
-        responsibilities:
-          - Collaborate with the web designer to review code and build new features.
-          - Consult with internal stakeholders to determine priorities and plan new websites.
-          - Maintain documentation on development and deployment workflows as well as server configuration.
-  - position: Software Engineer II
-    name: Net eSolutions
-    location: McLean, VA
-    startDate: 2015-10
-    endDate: 2019-03
-    highlights:
-      - name: Front-end development
-        responsibilities:
-          - Built Drupal themes using a component-based approach.
-          - Transformed Photoshop mockups into static prototypes using HTML, CSS/Sass, and JavaScript/ES6.
-          - Ensured full compliance with section 508 accessibility requirements.
-          - Built complex widgets with Angular.
-      - name: Back-end development
-        responsibilities:
-          - Integrated Drupal 8 site search with the Thunderstone search API.
-          - Integrated Drupal 8 login with Active Directory and single sign on functionality.
-          - Created REST APIs to consume site content with JavaScript frameworks.
-          - Build Drupal 7 &amp; 8 modules as needed to support site functionality.
-      - name: DevOps
-        responsibilities:
-          - Wrote migration scripts to import data from external sites into Drupal.
-          - Wrote tests as part of a test-driven continuous deployment workflow.
-          - Maintained consistency between different development environments by using Drupal 8&rsquo;s configuration management features.
-      - name: Product development
-        responsibilities:
-          - Understood business requirements to provide accurate estimates of work.
-          - Planned enterprise level application architecture.
-      - name: Communication
-        responsibilities:
-          - Provided expert guidance.
-          - Maintained client relationships while serving as a point of contact for site maintenance requests.
-          - Collaborated with team members to ensure the quality and timeliness of projects.
-  - position: Electronic Services Librarian
-    name: The Catholic University of America
-    location: Washington, DC
-    startDate: 2011-10
-    endDate: 2015-10
-    highlights:
-      - name: Web development
-        responsibilities:
-          - Developed a responsive framework to unify branding and codebase across multiple sites and CMSs, including Drupal 7 and WordPress.
-          - Migrated multiple sites to Drupal from Filemaker Pro and Joomla.
-          - Designed &amp; implemented a Git-based automated deployment workflow for all sites.
-      - name: User-experience design
-        responsibilities:
-          - Conducted user research, including usability tests, heuristic analysis, and Google Analytics, to understand and improve the usability of sites.
-          - Redesigned intranet following user-centered design principles.
-      - name: Communication
-        responsibilities:
-          - Supervised other team members in achieving departmental goals.
-          - Consulted with other departments on new web-related projects and redesigns.
-          - Worked on a committee to develop standards for digital projects within a nine-university consortium.
-          - Developed the digitization program including drafting policies and procedures, training new staff, and project management.
-education:
-  - studyType: Master of Science in Information
-    institution: 'University of Michigan: School of Information'
-    location: Ann Arbor, MI
-    endDate: 2011-04
-    highlights:
-      - Specialization in Archives and Records Management.
-      - 'Honors: Member of Phi Kappa Phi honor society, Half-tuition scholarship recipient.'
-      - 'Areas of Study: web development, user experience design, information architecture, project management, intellectual property law.'
-  - studyType: Bachelor of Music
-    institution: Wheaton College
-    location: Wheaton, IL
-    endDate: 2004-12
-    highlights:
-      - "Honors: Magna cum laude, Conservatory of Music Senior Class Award, Dean&rsquo;s List."
-projects:
-  - name: Social Media Marketing Study
-    instutition: 'Smithsonian Institution: Folkways Recordings'
-    location: Washington, DC
-    startDate: 2011-02
-    endDate: 2011-03
-    highlights:
-      - Gathered data from Google Analytics and multiple social media sites.
-      - Wrote a report detailing my findings and making recommendations for more effective use of social media.
-      - Analyzed how the social media activity affected traffic on the main Folkways website, including email newsletter subscriptions and music downloads.
-  - name: Website Usability Study
-    instutition: 'University of Michigan: Environmental Health Sciences'
-    location: Ann Arbor, MI
-    startDate: 2010-01
-    endDate: 2010-04
-    highlights:
-      - Interviewed and surveyed students about their use of the departmental website.
-      - Ran user evaluations to test ease of use and findability of information.
-      - Presented oral and written reports of findings to the client resulting in a number of improvements to the layout of the departmental website.
-publications:
-  - name: 'Thus Said the End Users: Summon Experience and Support for Research Workflows'
-    publisher: Poster at the CUA "Bridging the Spectrum" Symposium
-    releaseDate: 2015-02-20
-  - name: Maintaining multiple responsive designs with a small staff
-    publisher: Presentation at the ALA Midwinter Virtual Meeting
-    releaseDate: 2014-02-19
-  - name: 'Discovering Information through Summon: An Analysis of User Search Strategies and Search Success'
-    publisher: Presentation at the CUA "Bridging the Spectrum" Symposium
-    releaseDate: 2014-01-31
-  - name: Oral History in the Digital Age
-    publisher: Poster at the SAA Research Forum
-    releaseDate: 2010-08-12
 ---
 
 <div class="[ h-resume ] [ center stack ]" typeof="schema:Person">
@@ -133,66 +8,87 @@ publications:
 
   <h2>Experience</h2>
 
-  {% for position in work %}
+  {% for position in collections.work %}
     <div class="p-experience h-event" property="schema:hasOccupation" typeof="schema:OrganizationRole">
       <div class="stack" property="schema:hasOccupation" typeof="schema:Occupation">
         <h3>
-          <span class="p-name" property="schema:name">{{ position.position }}</span>
-          (<time class="dt-start" property="schema:startDate">{{ position.startDate | date({ year: 'numeric', month: 'long' }) }}</time>&ndash;<time class="dt-end" property="schema:endDate">{{ position.endDate | date({ year: 'numeric', month: 'long' }) }}</time>)
+          <span class="p-name" property="schema:name">{{ position.data.position }}</span>
+          (<time class="dt-start" property="schema:startDate">{{ position.data.startDate | date({ year: 'numeric', month: 'long' }) }}</time>&ndash;<time class="dt-end" property="schema:endDate">{{ position.data.endDate | date({ year: 'numeric', month: 'long' }) }}</time>)
         </h3>
 
         <p class="p-location h-card">
-          <span class="p-org">{{ position.name }}</span>:
-          <span class="p-adr" property="schema:occupationLocation">{{ position.location }}</span>
+          <span class="p-org">{{ position.data.name }}</span>:
+          <span class="p-adr" property="schema:occupationLocation">{{ position.data.location }}</span>
         </p>
 
-        {% for highlight in position.highlights %}
-          <h4 class="p-skill" property="schema:skills">{{ highlight.name }}</h4>
+        {% if position.templateContent or position.data.highlights %}
+          <div class="[ p-summary ] [ stack ]" property="schema:description">
+            {{ position.templateContent | safe }}
 
-          <ul class="p-summary" property="schema:responsibilities">
-            {% for responsibility in highlight.responsibilities %}
-              <li>{{ responsibility  }}</li>
-            {% endfor %}
-          </ul>
-        {% endfor %}
+            {% if position.data.highlights %}
+              <ul>
+                {% for highlight in position.data.highlights %}
+                  <li>{{ highlight }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        {% endif %}
       </div>
     </div>
   {% endfor %}
 
   <h2>Education</h2>
 
-  {% for degree in education %}
+  {% for degree in collections.education %}
     <div class="p-education h-event" property="schema:alumniOf" typeof="schama:OrganizationRole">
       <div class="stack" property="schema:alumniOf" typeof="schema:CollegeOrUniversity">
         <h3>
-          <span class="p-name">{{ degree.studyType }}</span>
-          (<time class="dt-end" property="schema:endDate">{{ degree.endDate | date({ year: 'numeric', month: 'long' }) }}</time>)
+          <span class="p-name">{{ degree.data.studyType }}</span>
+          (<time class="dt-end" property="schema:endDate">{{ degree.data.endDate | date({ year: 'numeric', month: 'long' }) }}</time>)
         </h3>
 
         <p class="p-location h-card">
-          <span class="p-org" property="schema:name">{{ degree.institution }}</span>:
-          <span class="p-adr" property="schema:address">{{ degree.location }}</span>
+          <span class="p-org" property="schema:name">{{ degree.data.institution }}</span>:
+          <span class="p-adr" property="schema:address">{{ degree.data.location }}</span>
         </p>
 
-        <ul class="p-summary">
-          {% for highlight in degree.highlights %}
-            <li>{{ highlight }}</li>
-          {% endfor %}
-        </ul>
+        {% if degree.templateContent or degree.data.highlights %}
+          <div class="[ p-summary ] [ stack ]" property="schema:description">
+            {{ degree.templateContent | safe }}
+
+            {% if degree.data.courses %}
+              <ul>
+                {% for course in degree.data.courses %}
+                  <li>{{ course }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        {% endif %}
       </div>
     </div>
   {% endfor %}
 
   <h2>Projects</h2>
 
-  {% for project in projects %}
-    <h3>{{ project.name }} at {{ project.instutition }}</h3>
-    <p>{{ project.location }} ({{ project.startDate | date({ year: 'numeric', month: 'long' }) }}&ndash;{{ project.endDate | date({ year: 'numeric', month: 'long' }) }})</p>
-    <ul>
-      {% for highlight in project.highlights %}
-        <li>{{ highlight  }}</li>
-      {% endfor %}
-    </ul>
+  {% for project in collections.projects %}
+    <h3>{{ project.data.name }} at {{ project.data.instutition }}</h3>
+    <p>{{ project.data.location }} ({{ project.data.startDate | date({ year: 'numeric', month: 'long' }) }}&ndash;{{ project.data.endDate | date({ year: 'numeric', month: 'long' }) }})</p>
+
+    {% if project.templateContent or project.data.highlights %}
+      <div class="stack">
+        {{ project.templateContent | safe }}
+
+        {% if project.data.highlights %}
+          <ul>
+            {% for highlight in project.data.highlights %}
+              <li>{{ highlight }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+    {% endif %}
   {% endfor %}
 
   <h2>Professional activity</h2>

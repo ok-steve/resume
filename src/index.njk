@@ -93,6 +93,14 @@ title: Steve Cherry - Senior Developer in Washington, DC
   {% endif %}
 {% endfor %}
 
+<h2>Awards</h2>
+
+<ul>
+  {% for award in awards %}
+    <li><em>{{ award.title }}</em>: {{ award.issuer }} ({{ award.date | date({ year: 'numeric', month: 'long', day: 'numeric' }) }})</li>
+  {% endfor %}
+</ul>
+
 <h2>Professional activity</h2>
 
 <ul>

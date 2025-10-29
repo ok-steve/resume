@@ -1,0 +1,19 @@
+{
+  "name": "Steve Cherry",
+  "label": "Senior Developer",
+  "email": "steve@stevecherry.net",
+  "url": "https://stevecherry.net",
+  "summary": "I am a full-stack Drupal developer with over 14 years of experience building and maintaining complex web applications. I specialize in creating scalable, maintainable, and user-friendly solutions for government and educational institutions.",
+  "location": {
+    "city": "Washington",
+    "countryCode": "US",
+    "region": "DC"
+  },
+  "profiles": [
+    {
+      "network": "GitHub",
+      "username": "ok-steve",
+      "url": "https://github.com/ok-steve"
+    }
+  ]
+}

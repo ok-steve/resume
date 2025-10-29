@@ -13,7 +13,12 @@ title: Steve Cherry - Senior Developer in Washington, DC
       <div class="stack" property="schema:hasOccupation" typeof="schema:Occupation">
         <h3>
           <span class="p-name" property="schema:name">{{ position.data.position }}</span>
-          (<time class="dt-start" property="schema:startDate">{{ position.data.startDate | date({ year: 'numeric', month: 'long' }) }}</time>&ndash;<time class="dt-end" property="schema:endDate">{{ position.data.endDate | date({ year: 'numeric', month: 'long' }) }}</time>)
+          (<time class="dt-start" property="schema:startDate">{{ position.data.startDate | date({ year: 'numeric', month: 'long' }) }}</time>&ndash;
+          {%- if position.data.endDate -%}
+            <time class="dt-end" property="schema:endDate">{{ position.data.endDate | date({ year: 'numeric', month: 'long' }) }}</time>
+          {%- else -%}
+            <span>Present</span>
+          {%- endif %})
         </h3>
 
         <p class="p-location h-card">
